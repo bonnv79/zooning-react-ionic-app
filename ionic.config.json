@@ -1,0 +1,7 @@
+{
+  "name": "zooning-react-ionic-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
