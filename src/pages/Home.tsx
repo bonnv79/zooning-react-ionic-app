@@ -2,6 +2,7 @@ import { IonContent, IonHeader, IonPage, IonRow, IonTitle, IonToolbar } from '@i
 import ExploreContainer from '../components/ExploreContainer';
 import FilesystemDemo from '../components/filesystem/FilesystemDemo';
 import './Home.css';
+import Whatsapp from '../components/browser/whatsapp';
 
 const Home: React.FC = () => {
   return (
@@ -22,6 +23,9 @@ const Home: React.FC = () => {
         </IonRow> */}
         <IonRow>
           <FilesystemDemo />
+        </IonRow>
+        <IonRow>
+          <Whatsapp />
         </IonRow>
       </IonContent>
     </IonPage>
