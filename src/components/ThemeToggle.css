@@ -1,0 +1,52 @@
+/* Theme toggle variables */
+:root {
+  --theme-toggle-padding: 16px;
+  --theme-toggle-height: 48px;
+  --theme-toggle-sun-color: #ffb74d;
+  --theme-toggle-moon-color: #7986cb;
+  --theme-toggle-bg: #ddd;
+  --theme-toggle-bg-checked: #5c6bc0;
+  --theme-toggle-handle: #fff;
+  --theme-toggle-handle-checked: #fff;
+  --theme-toggle-border: transparent;
+}
+
+.dark {
+  --theme-toggle-sun-color: #ffd54f;
+  --theme-toggle-moon-color: #9fa8da;
+  --theme-toggle-bg: #444;
+  --theme-toggle-bg-checked: #7986cb;
+  --theme-toggle-handle: #fff;
+  --theme-toggle-handle-checked: #fff;
+  --theme-toggle-border: #666;
+}
+
+.theme-toggle {
+  --padding-start: var(--theme-toggle-padding);
+  --inner-padding-end: var(--theme-toggle-padding);
+  --min-height: var(--theme-toggle-height);
+  --border-color: var(--theme-toggle-border);
+  --background-hover: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle ion-icon {
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle ion-icon[name="sunny"] {
+  color: var(--theme-toggle-sun-color);
+}
+
+.theme-toggle ion-icon[name="moon"] {
+  color: var(--theme-toggle-moon-color);
+}
+
+.theme-toggle-switch {
+  --background: var(--theme-toggle-bg);
+  --background-checked: var(--theme-toggle-bg-checked);
+  --handle-background: var(--theme-toggle-handle);
+  --handle-background-checked: var(--theme-toggle-handle-checked);
+  transition: all 0.3s ease;
+}

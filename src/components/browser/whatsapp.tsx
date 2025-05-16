@@ -7,6 +7,11 @@ import './whatsapp.css';
 
 interface ContainerProps { }
 
+/*
+Instructions from whatsapp
+https://faq.whatsapp.com/5913398998672934
+*/
+
 const Whatsapp: React.FC<ContainerProps> = () => {
   const { t } = useLanguage();
   const [recipient, setRecipient] = useState<string>('84123456789');

@@ -1,20 +1,71 @@
+/* Define theme variables */
+:root {
+  /* Light theme variables */
+  --wa-bg-color: var(--app-background, #f0f2f5);
+  --wa-header-bg: #128C7E;
+  --wa-header-color: white;
+  --wa-header-shadow: rgba(0, 0, 0, 0.1);
+  --wa-form-bg: var(--app-card-background, white);
+  --wa-form-shadow: var(--app-shadow-color, rgba(0, 0, 0, 0.08));
+  --wa-label-color: #075E54;
+  --wa-input-border: var(--app-input-border, #ddd);
+  --wa-input-bg: var(--app-input-background, #f9f9f9);
+  --wa-input-color: var(--app-input-text, #000000);
+  --wa-input-placeholder: var(--app-input-placeholder, #999999);
+  --wa-input-focus-border: #25D366;
+  --wa-input-focus-shadow: rgba(37, 211, 102, 0.2);
+  --wa-button-bg: #25D366;
+  --wa-button-hover: #128C7E;
+  --wa-button-activated: #128C7E;
+  --wa-button-text: #ffffff;
+  --wa-button-shadow: rgba(37, 211, 102, 0.3);
+  --wa-toast-shadow: rgba(0, 0, 0, 0.15);
+  --wa-transition-speed: var(--app-transition-speed, 0.3s);
+}
+
+/* Dark theme variables */
+.dark {
+  --wa-bg-color: var(--app-background, #121212);
+  --wa-header-bg: #075E54;
+  --wa-header-color: white;
+  --wa-header-shadow: rgba(0, 0, 0, 0.3);
+  --wa-form-bg: var(--app-card-background, #1e1e1e);
+  --wa-form-shadow: var(--app-shadow-color, rgba(0, 0, 0, 0.2));
+  --wa-label-color: #25D366;
+  --wa-input-border: var(--app-input-border, #333);
+  --wa-input-bg: var(--app-input-background, #2a2a2a);
+  --wa-input-color: var(--app-input-text, #ffffff);
+  --wa-input-placeholder: var(--app-input-placeholder, #888888);
+  --wa-input-focus-border: #128C7E;
+  --wa-input-focus-shadow: rgba(37, 211, 102, 0.3);
+  --wa-button-bg: #128C7E;
+  --wa-button-hover: #075E54;
+  --wa-button-activated: #075E54;
+  --wa-button-text: #ffffff;
+  --wa-button-shadow: rgba(18, 140, 126, 0.4);
+  --wa-toast-shadow: rgba(0, 0, 0, 0.3);
+}
+
 /* Main container styles */
 .whatsapp-container {
-  --background: #f0f2f5;
+  --background: var(--wa-bg-color);
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: background-color var(--wa-transition-speed) ease;
 }
 
 /* Header styles */
 .whatsapp-header {
-  background-color: #128C7E;
-  color: white;
+  background-color: var(--wa-header-bg);
+  color: var(--wa-header-color);
   padding: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--wa-header-shadow);
+  transition: background-color var(--wa-transition-speed) ease, 
+              box-shadow var(--wa-transition-speed) ease;
 }
 
 .whatsapp-header-title {
@@ -23,12 +74,14 @@
   margin: 0;
   display: flex;
   align-items: center;
+  transition: color var(--wa-transition-speed) ease;
 }
 
 .whatsapp-icon {
-  color: white;
+  color: var(--wa-header-color);
   font-size: 24px;
   margin-right: 8px;
+  transition: color var(--wa-transition-speed) ease;
 }
 
 /* Content area */
@@ -36,15 +89,19 @@
   padding: 20px;
   flex: 1;
   overflow-y: auto;
+  background-color: var(--wa-bg-color);
+  transition: background-color var(--wa-transition-speed) ease;
 }
 
 /* Form styles */
 .whatsapp-form {
-  background: white;
+  background: var(--wa-form-bg);
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px var(--wa-form-shadow);
   margin-bottom: 20px;
+  transition: background-color var(--wa-transition-speed) ease, 
+              box-shadow var(--wa-transition-speed) ease;
 }
 
 .form-group {
@@ -53,32 +110,42 @@
 
 .form-label {
   display: block;
-  color: #075E54;
+  color: var(--wa-label-color);
   font-weight: 500;
   margin-bottom: 8px;
   font-size: 16px;
+  transition: color var(--wa-transition-speed) ease;
 }
 
 .form-input {
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid var(--wa-input-border);
   border-radius: 8px;
   padding: 12px;
   font-size: 16px;
-  transition: border-color 0.3s;
-  background: #f9f9f9;
+  transition: border-color var(--wa-transition-speed) ease, 
+              background-color var(--wa-transition-speed) ease, 
+              color var(--wa-transition-speed) ease, 
+              box-shadow var(--wa-transition-speed) ease;
+  background: var(--wa-input-bg);
+  color: var(--wa-input-color);
   /* Prevent iOS zoom on focus */
   font-size: 16px !important;
   transform: scale(1);
   -webkit-text-size-adjust: 100%;
   touch-action: manipulation;
-  color: #000000;
+}
+
+.form-input::placeholder {
+  color: var(--wa-input-placeholder);
+  opacity: 0.8;
+  transition: color var(--wa-transition-speed) ease;
 }
 
 .form-input:focus {
-  border-color: #25D366;
+  border-color: var(--wa-input-focus-border);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+  box-shadow: 0 0 0 2px var(--wa-input-focus-shadow);
 }
 
 .form-textarea {
@@ -88,11 +155,12 @@
 
 /* Button styles */
 .send-button {
-  --background: #25D366;
-  --background-hover: #128C7E;
-  --background-activated: #128C7E;
+  --background: var(--wa-button-bg);
+  --background-hover: var(--wa-button-hover);
+  --background-activated: var(--wa-button-activated);
+  --color: var(--wa-button-text);
   --border-radius: 8px;
-  --box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  --box-shadow: 0 4px 12px var(--wa-button-shadow);
   margin: 0 auto;
   display: block;
   width: 100%;
@@ -100,17 +168,29 @@
   height: 48px;
   font-size: 16px;
   font-weight: 600;
+  transition: box-shadow var(--wa-transition-speed) ease,
+              opacity var(--wa-transition-speed) ease;
+}
+
+.send-button:hover {
+  --box-shadow: 0 6px 16px var(--wa-button-shadow);
+  opacity: 0.95;
 }
 
 .send-button ion-icon {
   margin-right: 8px;
   font-size: 18px;
+  transition: transform var(--wa-transition-speed) ease;
+}
+
+.send-button:active ion-icon {
+  transform: scale(0.95);
 }
 
 /* Toast modifications */
 ion-toast {
   --border-radius: 8px;
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --box-shadow: 0 4px 12px var(--wa-toast-shadow);
   --width: 320px;
   --min-height: 48px;
 }

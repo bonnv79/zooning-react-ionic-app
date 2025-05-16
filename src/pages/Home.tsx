@@ -14,11 +14,14 @@ import {
 } from '@ionic/react';
 import { folderOutline, logoWhatsapp, homeOutline } from 'ionicons/icons';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import ThemeToggle from '../components/ThemeToggle';
 import './Home.css';
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
+  const { isDarkMode } = useTheme();
   
   return (
     <>
@@ -44,6 +47,7 @@ const Home: React.FC = () => {
               <IonLabel>{t('menu.whatsapp')}</IonLabel>
             </IonItem>
             <LanguageSwitcher />
+            <ThemeToggle />
           </IonList>
         </IonContent>
       </IonMenu>
@@ -58,7 +62,7 @@ const Home: React.FC = () => {
             <IonTitle>{t('home.title')}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding">
+        <IonContent className="ion-padding home-content">
           <h2>{t('home.welcome')}</h2>
           <p>{t('home.choose')}</p>
           

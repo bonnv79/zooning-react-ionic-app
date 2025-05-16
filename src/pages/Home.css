@@ -1,57 +1,157 @@
+/* Home page styles with dark mode support */
+:root {
+  --home-bg: var(--app-background, #ffffff);
+  --home-card-bg: var(--app-card-background, #ffffff);
+  --home-card-shadow: var(--app-shadow-color, rgba(0, 0, 0, 0.1));
+  --home-card-hover-shadow: rgba(0, 0, 0, 0.15);
+  --home-card-text: var(--app-text-color, var(--ion-color-dark));
+  --home-card-description: var(--app-text-color-secondary, var(--ion-color-medium));
+  --home-icon-color: var(--ion-color-primary);
+  --home-transition-speed: var(--app-transition-speed, 0.3s);
+  --home-menu-bg: var(--app-menu-background, #ffffff);
+  --home-menu-text: var(--app-menu-text, #121212);
+  --home-menu-border: var(--app-menu-border, #e0e0e0);
+  --home-menu-active: var(--app-menu-active, rgba(56, 128, 255, 0.1));
+}
+
+/* Dark mode specific variables */
+.dark {
+  --home-bg: var(--app-background, #121212);
+  --home-card-bg: var(--app-card-background, #2a2a2a);
+  --home-card-shadow: var(--app-shadow-color, rgba(0, 0, 0, 0.3));
+  --home-card-hover-shadow: rgba(0, 0, 0, 0.4);
+  --home-card-text: var(--app-text-color, var(--ion-color-light));
+  --home-card-description: var(--app-text-color-secondary, #a0a0a0);
+  --home-icon-color: var(--ion-color-primary);
+  --home-menu-bg: var(--app-menu-background, #1e1e1e);
+  --home-menu-text: var(--app-menu-text, #f4f4f4);
+  --home-menu-border: var(--app-menu-border, #3d3d3d);
+  --home-menu-active: var(--app-menu-active, rgba(66, 140, 255, 0.2));
+}
+
+/* Page background */
+ion-content.home-content {
+  --background: var(--home-bg);
+  transition: --background var(--home-transition-speed) ease;
+}
+
+/* Feature cards container */
 .home-features {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   margin-top: 30px;
+  padding: 0 16px 30px;
 }
 
+/* Feature card styling */
 .feature-card {
-  background-color: #ffffff;
+  background-color: var(--home-card-bg);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--home-card-shadow);
   padding: 20px;
   width: 100%;
   max-width: 300px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform var(--home-transition-speed) ease, 
+              box-shadow var(--home-transition-speed) ease,
+              background-color var(--home-transition-speed) ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px var(--home-card-hover-shadow);
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--ion-color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--home-transition-speed) ease;
+}
+
+.feature-card:hover::after {
+  transform: scaleX(1);
 }
 
 .feature-card ion-icon {
   font-size: 48px;
-  color: var(--ion-color-primary);
+  color: var(--home-icon-color);
   margin-bottom: 16px;
+  transition: color var(--home-transition-speed) ease,
+              transform var(--home-transition-speed) ease;
+}
+
+.feature-card:hover ion-icon {
+  transform: scale(1.1);
 }
 
 .feature-card h3 {
   margin: 0 0 10px 0;
   font-weight: 600;
-  color: var(--ion-color-dark);
+  color: var(--home-card-text);
+  transition: color var(--home-transition-speed) ease;
 }
 
 .feature-card p {
-  color: var(--ion-color-medium);
+  color: var(--home-card-description);
   margin: 0;
   font-size: 14px;
+  transition: color var(--home-transition-speed) ease;
 }
 
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
+/* Menu styling */
+ion-menu {
+  --background: var(--home-menu-bg);
+  transition: --background var(--home-transition-speed) ease;
+}
+
+ion-menu ion-item {
+  --background: var(--home-menu-bg);
+  --color: var(--home-menu-text);
+  --border-color: var(--home-menu-border);
+  transition: --background var(--home-transition-speed) ease,
+              --color var(--home-transition-speed) ease,
+              --border-color var(--home-transition-speed) ease;
+}
+
+ion-menu ion-item.selected {
+  --background: var(--home-menu-active);
+  --color: var(--ion-color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-features {
+    gap: 16px;
+    padding: 0 12px 24px;
+  }
+  
   .feature-card {
-    background-color: var(--ion-color-step-100);
+    padding: 16px;
+    max-width: 100%;
+  }
+  
+  .feature-card ion-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
   }
   
   .feature-card h3 {
-    color: var(--ion-color-light);
+    font-size: 16px;
   }
   
   .feature-card p {
-    color: var(--ion-color-step-600);
+    font-size: 13px;
   }
 }

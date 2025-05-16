@@ -1,2 +1,285 @@
-/* For information on how to create your own theme, please see:
-http://ionicframework.com/docs/theming/ */
+/* Ionic Variables and Theming
+ * For more information, please see:
+ * http://ionicframework.com/docs/theming/
+ */
+
+:root {
+  /** primary **/
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --ion-color-secondary: #3dc2ff;
+  --ion-color-secondary-rgb: 61, 194, 255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #36abe0;
+  --ion-color-secondary-tint: #50c8ff;
+
+  /** tertiary **/
+  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary-rgb: 82, 96, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-tint: #6370ff;
+
+  /** success **/
+  --ion-color-success: #2dd36f;
+  --ion-color-success-rgb: 45, 211, 111;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #28ba62;
+  --ion-color-success-tint: #42d77d;
+
+  /** warning **/
+  --ion-color-warning: #ffc409;
+  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0ac08;
+  --ion-color-warning-tint: #ffca22;
+
+  /** danger **/
+  --ion-color-danger: #eb445a;
+  --ion-color-danger-rgb: 235, 68, 90;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cf3c4f;
+  --ion-color-danger-tint: #ed576b;
+
+  /** dark **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 36, 40;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  /** light **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+
+  /* App specific variables */
+  --app-background: #ffffff;
+  --app-surface: #f8f8f8;
+  --app-item-background: #ffffff;
+  --app-text-color: #121212;
+  --app-text-color-secondary: #666666;
+  --app-border-color: #e0e0e0;
+  --app-shadow-color: rgba(0, 0, 0, 0.1);
+  --app-card-background: #ffffff;
+  --app-card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --app-input-background: #ffffff;
+  --app-input-border: #d1d1d1;
+  --app-input-text: #121212;
+  --app-input-placeholder: #999999;
+  --app-menu-background: #ffffff;
+  --app-menu-text: #121212;
+  --app-menu-border: #e0e0e0;
+  --app-menu-active: rgba(56, 128, 255, 0.1);
+  --app-toolbar-background: #ffffff;
+  --app-toolbar-border: #e0e0e0;
+  --app-toolbar-text: #121212;
+  --app-whatsapp-bg: #f0f2f5;
+  --app-whatsapp-form-bg: #ffffff;
+  --app-whatsapp-input-bg: #ffffff;
+  --app-whatsapp-button-bg: #25D366;
+  --app-whatsapp-button-text: #ffffff;
+  --app-transition-speed: 0.3s;
+}
+
+/* Dark mode theme */
+.dark {
+  --ion-color-primary: #428cff;
+  --ion-color-primary-rgb: 66, 140, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3a7be0;
+  --ion-color-primary-tint: #5598ff;
+
+  --ion-color-secondary: #50c8ff;
+  --ion-color-secondary-rgb: 80, 200, 255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #46b0e0;
+  --ion-color-secondary-tint: #62ceff;
+
+  --ion-color-tertiary: #6a64ff;
+  --ion-color-tertiary-rgb: 106, 100, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #5d58e0;
+  --ion-color-tertiary-tint: #7974ff;
+
+  --ion-color-success: #2fdf75;
+  --ion-color-success-rgb: 47, 223, 117;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #29c467;
+  --ion-color-success-tint: #44e283;
+
+  --ion-color-warning: #ffd534;
+  --ion-color-warning-rgb: 255, 213, 52;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0bb2e;
+  --ion-color-warning-tint: #ffd948;
+
+  --ion-color-danger: #ff4961;
+  --ion-color-danger-rgb: 255, 73, 97;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #e04055;
+  --ion-color-danger-tint: #ff5b71;
+
+  --ion-color-dark: #f4f5f8;
+  --ion-color-dark-rgb: 244, 245, 248;
+  --ion-color-dark-contrast: #000000;
+  --ion-color-dark-contrast-rgb: 0, 0, 0;
+  --ion-color-dark-shade: #d7d8da;
+  --ion-color-dark-tint: #f5f6f9;
+
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152, 154, 162;
+  --ion-color-medium-contrast: #000000;
+  --ion-color-medium-contrast-rgb: 0, 0, 0;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
+
+  --ion-color-light: #222428;
+  --ion-color-light-rgb: 34, 36, 40;
+  --ion-color-light-contrast: #ffffff;
+  --ion-color-light-contrast-rgb: 255, 255, 255;
+  --ion-color-light-shade: #1e2023;
+  --ion-color-light-tint: #383a3e;
+
+  /* App specific dark mode variables */
+  --app-background: #121212;
+  --app-surface: #1e1e1e;
+  --app-item-background: #2a2a2a;
+  --app-text-color: #f4f4f4;
+  --app-text-color-secondary: #b0b0b0;
+  --app-border-color: #3d3d3d;
+  --app-shadow-color: rgba(0, 0, 0, 0.5);
+  --app-card-background: #2a2a2a;
+  --app-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --app-input-background: #2a2a2a;
+  --app-input-border: #3d3d3d;
+  --app-input-text: #f4f4f4;
+  --app-input-placeholder: #888888;
+  --app-menu-background: #1e1e1e;
+  --app-menu-text: #f4f4f4;
+  --app-menu-border: #3d3d3d;
+  --app-menu-active: rgba(66, 140, 255, 0.2);
+  --app-toolbar-background: #1e1e1e;
+  --app-toolbar-border: #3d3d3d;
+  --app-toolbar-text: #f4f4f4;
+  --app-whatsapp-bg: #121212;
+  --app-whatsapp-form-bg: #2a2a2a;
+  --app-whatsapp-input-bg: #2a2a2a;
+  --app-whatsapp-button-bg: #1a8a42;
+  --app-whatsapp-button-text: #ffffff;
+}
+
+/* Core CSS required for Ionic components */
+@import "~@ionic/react/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/react/css/normalize.css";
+@import "~@ionic/react/css/structure.css";
+@import "~@ionic/react/css/typography.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/react/css/padding.css";
+@import "~@ionic/react/css/float-elements.css";
+@import "~@ionic/react/css/text-alignment.css";
+@import "~@ionic/react/css/text-transformation.css";
+@import "~@ionic/react/css/flex-utils.css";
+@import "~@ionic/react/css/display.css";
+
+/* Global styles */
+body {
+  background-color: var(--app-background);
+  color: var(--app-text-color);
+  transition: background-color var(--app-transition-speed) ease, color var(--app-transition-speed) ease;
+}
+
+/* Apply dark mode to Ionic components */
+.dark ion-content {
+  --background: var(--app-background);
+  --color: var(--app-text-color);
+}
+
+.dark ion-item {
+  --background: var(--app-item-background);
+  --color: var(--app-text-color);
+  --border-color: var(--app-border-color);
+}
+
+.dark ion-card {
+  --background: var(--app-card-background);
+  --color: var(--app-text-color);
+  box-shadow: var(--app-card-shadow);
+}
+
+.dark ion-input, .dark ion-textarea {
+  --background: var(--app-input-background);
+  --color: var(--app-input-text);
+  --placeholder-color: var(--app-input-placeholder);
+  --border-color: var(--app-input-border);
+}
+
+.dark ion-toolbar {
+  --background: var(--app-toolbar-background);
+  --color: var(--app-toolbar-text);
+  --border-color: var(--app-toolbar-border);
+}
+
+.dark ion-menu {
+  --background: var(--app-menu-background);
+  --width: 270px;
+}
+
+.dark ion-menu-toggle ion-item {
+  --background: var(--app-menu-background);
+  --color: var(--app-menu-text);
+  --border-color: var(--app-menu-border);
+}
+
+.dark ion-menu-toggle ion-item.selected {
+  --background: var(--app-menu-active);
+  --color: var(--ion-color-primary);
+}
+
+/* Transition effects for smooth theme switching */
+ion-content,
+ion-toolbar,
+ion-item,
+ion-card,
+ion-input,
+ion-textarea,
+ion-button,
+ion-menu,
+ion-list {
+  transition: background-color var(--app-transition-speed) ease,
+              color var(--app-transition-speed) ease,
+              border-color var(--app-transition-speed) ease,
+              box-shadow var(--app-transition-speed) ease;
+}

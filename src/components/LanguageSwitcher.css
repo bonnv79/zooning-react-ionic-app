@@ -1,20 +1,47 @@
+/* Language switcher variables */
+:root {
+  --lang-padding: 16px;
+  --lang-height: 48px;
+  --lang-icon-color: #3880ff;
+  --lang-select-width: 120px;
+  --lang-popover-width: 150px;
+  --lang-border: transparent;
+  --lang-text-color: var(--ion-text-color);
+  --lang-bg-hover: rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  --lang-icon-color: #5c9dff;
+  --lang-border: #444;
+  --lang-bg-hover: rgba(255, 255, 255, 0.04);
+}
+
 .language-switcher {
-  --padding-start: 16px;
-  --inner-padding-end: 16px;
-  --min-height: 48px;
+  --padding-start: var(--lang-padding);
+  --inner-padding-end: var(--lang-padding);
+  --min-height: var(--lang-height);
+  --border-color: var(--lang-border);
+  --background-hover: var(--lang-bg-hover);
+  transition: background-color 0.3s ease;
 }
 
 .language-switcher ion-icon {
-  color: #3880ff;
+  color: var(--lang-icon-color);
   font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.language-switcher ion-label {
+  color: var(--lang-text-color);
+  transition: color 0.3s ease;
 }
 
 .language-select {
-  max-width: 120px;
+  max-width: var(--lang-select-width);
 }
 
 /* Style for the select when open */
 .select-interface-popover {
-  --width: 150px;
-  --max-width: 150px;
+  --width: var(--lang-popover-width);
+  --max-width: var(--lang-popover-width);
 }
