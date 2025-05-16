@@ -42,11 +42,24 @@ const config: CapacitorConfig = {
       allowZooming: true,
       scrollEnabled: true
     },
+    // Explicitly enable Filesystem plugin
+    Filesystem: {
+      enabled: true
+    },
     // iOS file sharing configuration
     CapacitorFileSharing: {
       iosInfoPlist: {
         UIFileSharingEnabled: true,
         LSSupportsOpeningDocumentsInPlace: true
+      }
+    },
+    // iOS specific permissions for Filesystem
+    CapacitorFilesystem: {
+      iosInfoPlist: {
+        UIFileSharingEnabled: true,
+        LSSupportsOpeningDocumentsInPlace: true,
+        NSPhotoLibraryAddUsageDescription: "Store photo in your photo library",
+        NSPhotoLibraryUsageDescription: "Need photo library access"
       }
     },
     // Android permissions configuration
