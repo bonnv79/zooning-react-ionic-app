@@ -1,0 +1,66 @@
+/* WhatsApp page styles with dark mode support */
+:root {
+  --wa-page-bg: var(--app-background, #ffffff);
+  --wa-page-text: var(--app-text-color, #121212);
+  --wa-toolbar-bg: var(--app-toolbar-background, #ffffff);
+  --wa-toolbar-border: var(--app-toolbar-border, #e0e0e0);
+  --wa-transition-speed: var(--app-transition-speed, 0.3s);
+}
+
+.dark {
+  --wa-page-bg: var(--app-background, #121212);
+  --wa-page-text: var(--app-text-color, #f4f4f4);
+  --wa-toolbar-bg: var(--app-toolbar-background, #1e1e1e);
+  --wa-toolbar-border: var(--app-toolbar-border, #3d3d3d);
+}
+
+/* Page background */
+.dark-page {
+  background-color: var(--wa-page-bg);
+  color: var(--wa-page-text);
+}
+
+.light-page {
+  background-color: var(--wa-page-bg);
+  color: var(--wa-page-text);
+}
+
+/* Content area */
+.whatsapp-page-content {
+  --background: var(--wa-page-bg);
+  --color: var(--wa-page-text);
+}
+
+/* Prevent white flash during page transitions */
+ion-page {
+  background-color: var(--wa-page-bg) !important;
+  transition: background-color var(--wa-transition-speed) ease;
+}
+
+ion-content {
+  --background: var(--wa-page-bg) !important;
+  transition: --background var(--wa-transition-speed) ease;
+}
+
+/* Toolbar styling */
+ion-toolbar {
+  --background: var(--wa-toolbar-bg);
+  --color: var(--wa-page-text);
+  --border-color: var(--wa-toolbar-border);
+}
+
+/* Fix input fields in dark mode */
+.dark ion-input, 
+.dark ion-textarea {
+  --background: var(--app-input-background);
+  --color: var(--app-input-text);
+  --placeholder-color: var(--app-input-placeholder);
+}
+
+/* Fix form elements in light mode */
+.light ion-input, 
+.light ion-textarea {
+  --background: var(--app-input-background);
+  --color: var(--app-input-text);
+  --placeholder-color: var(--app-input-placeholder);
+}

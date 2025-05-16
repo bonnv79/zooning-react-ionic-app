@@ -1,0 +1,68 @@
+/* Filesystem page styles with dark mode support */
+:root {
+  --fs-page-bg: var(--app-background, #ffffff);
+  --fs-page-text: var(--app-text-color, #121212);
+  --fs-toolbar-bg: var(--app-toolbar-background, #ffffff);
+  --fs-toolbar-border: var(--app-toolbar-border, #e0e0e0);
+  --fs-transition-speed: var(--app-transition-speed, 0.3s);
+}
+
+.dark {
+  --fs-page-bg: var(--app-background, #121212);
+  --fs-page-text: var(--app-text-color, #f4f4f4);
+  --fs-toolbar-bg: var(--app-toolbar-background, #1e1e1e);
+  --fs-toolbar-border: var(--app-toolbar-border, #3d3d3d);
+}
+
+/* Page background */
+.dark-page {
+  background-color: var(--fs-page-bg);
+  color: var(--fs-page-text);
+}
+
+.light-page {
+  background-color: var(--fs-page-bg);
+  color: var(--fs-page-text);
+}
+
+/* Content area */
+.filesystem-content {
+  --background: var(--fs-page-bg);
+  --color: var(--fs-page-text);
+}
+
+/* Prevent white flash during page transitions */
+ion-page {
+  background-color: var(--fs-page-bg) !important;
+  transition: background-color var(--fs-transition-speed) ease;
+}
+
+ion-content {
+  --background: var(--fs-page-bg) !important;
+  transition: --background var(--fs-transition-speed) ease;
+}
+
+/* Toolbar styling */
+ion-toolbar {
+  --background: var(--fs-toolbar-bg);
+  --color: var(--fs-page-text);
+  --border-color: var(--fs-toolbar-border);
+}
+
+/* Fix file content display in dark mode */
+.file-content {
+  background-color: var(--app-item-background) !important;
+  color: var(--app-text-color) !important;
+  border-color: var(--app-border-color) !important;
+}
+
+/* Ensure text is visible in both modes */
+.dark .file-content {
+  color: #e0e0e0 !important;
+  background-color: #2a2a2a !important;
+}
+
+.light .file-content {
+  color: #333 !important;
+  background-color: #f5f5f5 !important;
+}

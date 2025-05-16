@@ -30,12 +30,14 @@ import '@ionic/react/css/display.css';
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
+/* Using class-based dark mode instead of system preference */
+import '@ionic/react/css/palettes/dark.class.css';
 
 /* Theme variables */
 import './theme/variables.css';
+
+/* Dark mode fixes */
+import './theme/dark-mode-fixes.css';
 
 setupIonicReact();
 

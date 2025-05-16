@@ -221,6 +221,64 @@ body {
   transition: background-color var(--app-transition-speed) ease, color var(--app-transition-speed) ease;
 }
 
+/* Prevent white flash during navigation */
+ion-content {
+  --background: var(--app-background);
+}
+
+ion-page {
+  background-color: var(--app-background);
+}
+
+/* Fix file content colors */
+.file-content {
+  color: var(--app-text-color) !important;
+  background-color: var(--app-item-background) !important;
+  border-color: var(--app-border-color) !important;
+}
+
+/* Fix select elements in dark mode */
+.dark ion-select::part(text),
+.dark ion-select::part(placeholder) {
+  color: #ffffff !important;
+}
+
+.dark ion-select-option {
+  color: #ffffff !important;
+}
+
+.dark ion-alert {
+  --background: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+.dark ion-alert .alert-title,
+.dark ion-alert .alert-message,
+.dark ion-alert .alert-input-group,
+.dark ion-alert .alert-input,
+.dark ion-alert button {
+  color: #ffffff !important;
+}
+
+/* Prevent white flash during navigation */
+body.dark ion-app,
+body.dark ion-content,
+body.dark ion-page,
+body.dark ion-router-outlet {
+  background-color: #121212 !important;
+}
+
+/* Fix select popover background in dark mode */
+.dark .select-interface-option {
+  color: #ffffff !important;
+  background-color: #2a2a2a !important;
+}
+
+.dark .action-sheet-button {
+  color: #ffffff !important;
+  background-color: #2a2a2a !important;
+}
+
 /* Apply dark mode to Ionic components */
 .dark ion-content {
   --background: var(--app-background);

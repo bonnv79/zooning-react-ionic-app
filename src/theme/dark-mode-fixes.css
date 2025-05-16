@@ -1,0 +1,88 @@
+/* Global dark mode fixes for Ionic components */
+
+/* Fix select elements in dark mode */
+.dark ion-select::part(text),
+.dark ion-select::part(placeholder) {
+  color: #ffffff !important;
+}
+
+.dark ion-select-option {
+  color: #ffffff !important;
+}
+
+/* Fix alert/action sheet components in dark mode */
+.dark ion-alert,
+.dark .alert-wrapper,
+.dark .alert-head,
+.dark .alert-title,
+.dark .alert-sub-title,
+.dark .alert-message,
+.dark .alert-input-group,
+.dark .alert-input-wrapper,
+.dark .alert-input,
+.dark .alert-button-group,
+.dark .alert-button {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+.dark .action-sheet-container,
+.dark .action-sheet-group,
+.dark .action-sheet-title,
+.dark .action-sheet-button,
+.dark .action-sheet-button-inner {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+/* Fix select interface in dark mode */
+.dark .select-interface-option,
+.dark ion-select-popover ion-item {
+  --background: #2a2a2a !important;
+  --color: #ffffff !important;
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+/* Prevent white flash during navigation */
+body.dark,
+body.dark ion-app,
+body.dark ion-router-outlet,
+body.dark ion-content,
+body.dark ion-page {
+  background-color: #121212 !important;
+}
+
+/* Fix alert buttons */
+.dark .alert-button {
+  color: #428cff !important;
+}
+
+/* Fix select option active state */
+.dark .select-interface-option.select-interface-option-selected {
+  background-color: #3880ff20 !important;
+  color: #428cff !important;
+}
+
+/* Fix input text color in dark mode */
+.dark ion-input,
+.dark ion-textarea {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Fix popover background */
+.dark ion-popover .popover-content {
+  background: #2a2a2a !important;
+}
+
+/* Fix modal background */
+.dark ion-modal {
+  --background: #2a2a2a !important;
+}
+
+/* Fix toast background */
+.dark ion-toast {
+  --background: #2a2a2a !important;
+  --color: #ffffff !important;
+}
