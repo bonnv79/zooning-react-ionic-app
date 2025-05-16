@@ -7,8 +7,8 @@ import './whatsapp.css';
 interface ContainerProps { }
 
 const Whatsapp: React.FC<ContainerProps> = () => {
-  const [recipient, setRecipient] = useState<string>('+84123456789');
-  const [message, setMessage] = useState<string>('Hello1');
+  const [recipient, setRecipient] = useState<string>('84123456789');
+  const [message, setMessage] = useState<string>('Hello');
   const [showToast, setShowToast] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>('');
   const [toastColor, setToastColor] = useState<string>('success');
@@ -17,12 +17,6 @@ const Whatsapp: React.FC<ContainerProps> = () => {
     // Basic validation for phone numbers
     const phoneRegex = /^\+?[0-9\s\-\(\)]{8,15}$/;
     return phoneRegex.test(phone.trim());
-  };
-
-  const validateEmail = (email: string): boolean => {
-    // Basic validation for email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email.trim());
   };
 
   const showMessage = (msg: string, color: string = 'success') => {
@@ -49,9 +43,19 @@ const Whatsapp: React.FC<ContainerProps> = () => {
     }
   };
 
+  const openBlankBrowser = (url: string) => {
+    try {
+      window.open(url, '_blank');
+      return true;
+    } catch (error) {
+      console.error('Error opening browser:', error);
+      return false;
+    }
+  };
+
   const sendWhatsAppMessage = async () => {
     if (!recipient) {
-      showMessage('Please enter a phone number or email', 'danger');
+      showMessage('Please enter a phone number', 'danger');
       return;
     }
 
@@ -61,10 +65,9 @@ const Whatsapp: React.FC<ContainerProps> = () => {
     }
 
     const isValidPhone = validatePhoneNumber(recipient);
-    const isValidEmail = validateEmail(recipient);
 
-    if (!isValidPhone && !isValidEmail) {
-      showMessage('Invalid phone number or email', 'danger');
+    if (!isValidPhone) {
+      showMessage('Invalid phone number', 'danger');
       return;
     }
 
@@ -72,56 +75,30 @@ const Whatsapp: React.FC<ContainerProps> = () => {
       // Format phone number (remove spaces, etc.)
       let formattedRecipient = recipient.replace(/\s+/g, '');
 
-      // If it's a phone number and doesn't start with +, add it
-      if (isValidPhone && !formattedRecipient.startsWith('+')) {
-        formattedRecipient = '+' + formattedRecipient;
+      if (formattedRecipient.startsWith('+')) {
+        formattedRecipient = formattedRecipient.replace('+', '');
       }
 
       // Encode the message for URL
       const encodedMessage = encodeURIComponent(message);
 
+      // Create app URL scheme for WhatsApp
+      // const whatsappAppUrl = isValidPhone
+      //   ? `https://api.whatsapp.com/send?phone=${formattedRecipient}&text=${encodedMessage}`
+      //   : `https://api.whatsapp.com/send?abid=${encodeURIComponent(formattedRecipient)}&text=${encodedMessage}`;
+      // const webUrl = `https://web.whatsapp.com/send?phone=${formattedRecipient}&text=${encodedMessage}`;
+      // const whatsappAppUrl = `https://api.whatsapp.com/send?phone=${formattedRecipient}&text=${encodedMessage}`;
+      const whatsappAppUrl = `https://wa.me/${formattedRecipient}?text=${encodedMessage}`;
+
+      console.log('Opening in new tab:', whatsappAppUrl);
+
       // First try to open WhatsApp app directly if on a mobile device
       if (Capacitor.isNativePlatform()) {
         console.log('Using native platform approach');
-
-        // Try to open the WhatsApp app first using app URL scheme
-        try {
-          // Create app URL scheme for WhatsApp
-          const whatsappAppUrl = isValidPhone
-            ? `whatsapp://send?phone=${formattedRecipient}&text=${encodedMessage}`
-            : `whatsapp://send?abid=${encodeURIComponent(formattedRecipient)}&text=${encodedMessage}`;
-
-          console.log('Trying to open WhatsApp app with URL:', whatsappAppUrl);
-
-          // Use window.open to try opening the app in external browser
-          // This will only work if the app is installed
-          window.open(whatsappAppUrl, '_system');
-        } catch (error) {
-          console.error('Error opening WhatsApp app:', error);
-          console.log('App may not have opened, opening external browser');
-
-          // Create web URL based on whether it's a phone or email
-          const webUrl = isValidPhone
-            ? `https://wa.me/${formattedRecipient.replace('+', '')}?text=${encodedMessage}`
-            : `https://web.whatsapp.com/send?phone=${formattedRecipient}&text=${encodedMessage}`;
-
-          console.log('Opening in external browser:', webUrl);
-
-          // Use window.open to open the external browser
-          openExternalBrowser(webUrl);
-        }
+        openBlankBrowser(whatsappAppUrl);
       } else {
-        // On web browsers
         console.log('Web browser detected');
-
-        // Use the more reliable wa.me format for web
-        const webUrl = isValidPhone
-          ? `https://wa.me/${formattedRecipient.replace('+', '')}?text=${encodedMessage}`
-          : `https://web.whatsapp.com/send?phone=${formattedRecipient}&text=${encodedMessage}`;
-
-        console.log('Opening in new tab:', webUrl);
-        // For web testing, open in a new tab
-        window.open(webUrl, '_blank');
+        openBlankBrowser(whatsappAppUrl);
       }
 
       showMessage('Opening WhatsApp...', 'success');
@@ -145,14 +122,14 @@ const Whatsapp: React.FC<ContainerProps> = () => {
         <div className="whatsapp-form">
           {/* Recipient Input */}
           <div className="form-group">
-            <label htmlFor="recipient" className="form-label">Phone Number or Email</label>
+            <label htmlFor="recipient" className="form-label">Phone Number</label>
             <input
               id="recipient"
               type="text"
               className="form-input"
               value={recipient}
               onChange={handleRecipientChange}
-              placeholder="Example: +84123456789 or example@email.com"
+              placeholder="Example: +84123456789"
             />
           </div>
 

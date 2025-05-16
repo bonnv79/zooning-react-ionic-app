@@ -72,6 +72,7 @@
   transform: scale(1);
   -webkit-text-size-adjust: 100%;
   touch-action: manipulation;
+  color: #000000;
 }
 
 .form-input:focus {
@@ -119,18 +120,17 @@ ion-toast {
   .whatsapp-content {
     padding: 16px;
   }
-  
+
   .whatsapp-form {
     padding: 16px;
   }
-  
+
   .form-label {
     font-size: 15px;
   }
-  
+
   .form-input {
     padding: 10px;
     font-size: 15px;
   }
 }
-
