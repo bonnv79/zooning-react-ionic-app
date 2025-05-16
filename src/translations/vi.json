@@ -1,0 +1,37 @@
+{
+  "menu.title": "Menu",
+  "menu.home": "Trang chủ",
+  "menu.filesystem": "Filesystem Demo",
+  "menu.whatsapp": "WhatsApp",
+  "menu.language": "Ngôn ngữ",
+  
+  "home.title": "Trang chủ",
+  "home.welcome": "Chào mừng đến với ứng dụng demo",
+  "home.choose": "Vui lòng chọn một chức năng từ menu để bắt đầu.",
+  "home.filesystem.title": "Filesystem Demo",
+  "home.filesystem.desc": "Quản lý và lưu trữ file trên thiết bị",
+  "home.whatsapp.title": "WhatsApp",
+  "home.whatsapp.desc": "Truy cập tính năng WhatsApp",
+  
+  "whatsapp.title": "WhatsApp Messenger",
+  "whatsapp.phoneNumber": "Số điện thoại",
+  "whatsapp.message": "Tin nhắn",
+  "whatsapp.send": "Gửi tin nhắn WhatsApp",
+  "whatsapp.placeholder.phone": "Ví dụ: +84123456789",
+  "whatsapp.placeholder.message": "Nhập tin nhắn của bạn tại đây...",
+  "whatsapp.error.noPhone": "Vui lòng nhập số điện thoại",
+  "whatsapp.error.noMessage": "Vui lòng nhập tin nhắn",
+  "whatsapp.error.invalidPhone": "Số điện thoại không hợp lệ",
+  "whatsapp.success": "Đang mở WhatsApp...",
+  
+  "filesystem.title": "Filesystem Demo",
+  "filesystem.createFile": "Tạo File",
+  "filesystem.readFile": "Đọc File",
+  "filesystem.deleteFile": "Xóa File",
+  "filesystem.createFolder": "Tạo Thư Mục",
+  "filesystem.readFolder": "Đọc Thư Mục",
+  "filesystem.deleteFolder": "Xóa Thư Mục",
+  "filesystem.fileName": "Tên File",
+  "filesystem.fileContent": "Nội dung File",
+  "filesystem.folderName": "Tên Thư Mục"
+}

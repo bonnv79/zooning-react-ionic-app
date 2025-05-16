@@ -4,6 +4,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import FilesystemPage from './pages/FilesystemPage';
 import WhatsappPage from './pages/WhatsappPage';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -38,24 +39,26 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/filesystem">
-          <FilesystemPage />
-        </Route>
-        <Route exact path="/whatsapp">
-          <WhatsappPage />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+  <LanguageProvider>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/filesystem">
+            <FilesystemPage />
+          </Route>
+          <Route exact path="/whatsapp">
+            <WhatsappPage />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  </LanguageProvider>
 );
 
 export default App;

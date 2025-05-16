@@ -1,0 +1,37 @@
+{
+  "menu.title": "Menu",
+  "menu.home": "Home",
+  "menu.filesystem": "Filesystem Demo",
+  "menu.whatsapp": "WhatsApp",
+  "menu.language": "Language",
+  
+  "home.title": "Home",
+  "home.welcome": "Welcome to the demo app",
+  "home.choose": "Please select a feature from the menu to start.",
+  "home.filesystem.title": "Filesystem Demo",
+  "home.filesystem.desc": "Manage and store files on your device",
+  "home.whatsapp.title": "WhatsApp",
+  "home.whatsapp.desc": "Access WhatsApp features",
+  
+  "whatsapp.title": "WhatsApp Messenger",
+  "whatsapp.phoneNumber": "Phone Number",
+  "whatsapp.message": "Message",
+  "whatsapp.send": "Send WhatsApp Message",
+  "whatsapp.placeholder.phone": "Example: +84123456789",
+  "whatsapp.placeholder.message": "Enter your message here...",
+  "whatsapp.error.noPhone": "Please enter a phone number",
+  "whatsapp.error.noMessage": "Please enter a message",
+  "whatsapp.error.invalidPhone": "Invalid phone number",
+  "whatsapp.success": "Opening WhatsApp...",
+  
+  "filesystem.title": "Filesystem Demo",
+  "filesystem.createFile": "Create File",
+  "filesystem.readFile": "Read File",
+  "filesystem.deleteFile": "Delete File",
+  "filesystem.createFolder": "Create Folder",
+  "filesystem.readFolder": "Read Folder",
+  "filesystem.deleteFolder": "Delete Folder",
+  "filesystem.fileName": "File Name",
+  "filesystem.fileContent": "File Content",
+  "filesystem.folderName": "Folder Name"
+}

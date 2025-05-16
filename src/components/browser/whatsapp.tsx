@@ -2,11 +2,13 @@ import { IonButton, IonContent, IonIcon, IonToast } from '@ionic/react';
 import { logoWhatsapp, send, warning } from 'ionicons/icons';
 import { useState } from 'react';
 import { Capacitor } from '@capacitor/core';
+import { useLanguage } from '../../contexts/LanguageContext';
 import './whatsapp.css';
 
 interface ContainerProps { }
 
 const Whatsapp: React.FC<ContainerProps> = () => {
+  const { t } = useLanguage();
   const [recipient, setRecipient] = useState<string>('84123456789');
   const [message, setMessage] = useState<string>('Hello');
   const [showToast, setShowToast] = useState<boolean>(false);
@@ -55,19 +57,19 @@ const Whatsapp: React.FC<ContainerProps> = () => {
 
   const sendWhatsAppMessage = async () => {
     if (!recipient) {
-      showMessage('Please enter a phone number', 'danger');
+      showMessage(t('whatsapp.error.noPhone'), 'danger');
       return;
     }
 
     if (!message) {
-      showMessage('Please enter a message', 'danger');
+      showMessage(t('whatsapp.error.noMessage'), 'danger');
       return;
     }
 
     const isValidPhone = validatePhoneNumber(recipient);
 
     if (!isValidPhone) {
-      showMessage('Invalid phone number', 'danger');
+      showMessage(t('whatsapp.error.invalidPhone'), 'danger');
       return;
     }
 
@@ -101,7 +103,7 @@ const Whatsapp: React.FC<ContainerProps> = () => {
         openBlankBrowser(whatsappAppUrl);
       }
 
-      showMessage('Opening WhatsApp...', 'success');
+      showMessage(t('whatsapp.success'), 'success');
     } catch (error) {
       console.error('Error opening WhatsApp:', error);
     }
@@ -113,7 +115,7 @@ const Whatsapp: React.FC<ContainerProps> = () => {
       <div className="whatsapp-header">
         <h1 className="whatsapp-header-title">
           <IonIcon icon={logoWhatsapp} className="whatsapp-icon" />
-          WhatsApp Messenger
+          {t('whatsapp.title')}
         </h1>
       </div>
 
@@ -122,26 +124,26 @@ const Whatsapp: React.FC<ContainerProps> = () => {
         <div className="whatsapp-form">
           {/* Recipient Input */}
           <div className="form-group">
-            <label htmlFor="recipient" className="form-label">Phone Number</label>
+            <label htmlFor="recipient" className="form-label">{t('whatsapp.phoneNumber')}</label>
             <input
               id="recipient"
               type="text"
               className="form-input"
               value={recipient}
               onChange={handleRecipientChange}
-              placeholder="Example: +84123456789"
+              placeholder={t('whatsapp.placeholder.phone')}
             />
           </div>
 
           {/* Message Input */}
           <div className="form-group">
-            <label htmlFor="message" className="form-label">Message</label>
+            <label htmlFor="message" className="form-label">{t('whatsapp.message')}</label>
             <textarea
               id="message"
               className="form-input form-textarea"
               value={message}
               onChange={handleMessageChange}
-              placeholder="Enter your message here..."
+              placeholder={t('whatsapp.placeholder.message')}
               rows={5}
             ></textarea>
           </div>
@@ -152,7 +154,7 @@ const Whatsapp: React.FC<ContainerProps> = () => {
             onClick={sendWhatsAppMessage}
           >
             <IonIcon icon={send} slot="start" />
-            Send WhatsApp Message
+            {t('whatsapp.send')}
           </IonButton>
         </div>
       </div>

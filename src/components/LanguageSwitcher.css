@@ -1,0 +1,20 @@
+.language-switcher {
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  --min-height: 48px;
+}
+
+.language-switcher ion-icon {
+  color: #3880ff;
+  font-size: 20px;
+}
+
+.language-select {
+  max-width: 120px;
+}
+
+/* Style for the select when open */
+.select-interface-popover {
+  --width: 150px;
+  --max-width: 150px;
+}
