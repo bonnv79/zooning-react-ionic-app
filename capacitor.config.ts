@@ -41,6 +41,20 @@ const config: CapacitorConfig = {
     WebView: {
       allowZooming: true,
       scrollEnabled: true
+    },
+    // iOS file sharing configuration
+    CapacitorFileSharing: {
+      iosInfoPlist: {
+        UIFileSharingEnabled: true,
+        LSSupportsOpeningDocumentsInPlace: true
+      }
+    },
+    // Android permissions configuration
+    Permissions: {
+      permissions: [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
     }
   }
 };
