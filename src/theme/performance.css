@@ -1,0 +1,114 @@
+/* Performance optimizations for faster page transitions */
+
+/* Optimize animations for better performance */
+ion-router-outlet {
+  /* Use hardware acceleration for animations */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Reduce animation duration for faster transitions */
+  --ion-router-animation-duration: 80ms !important;
+}
+
+/* Optimize page transitions */
+ion-page {
+  /* Use hardware acceleration for page transitions */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Reduce transition duration */
+  transition-duration: 80ms !important;
+  /* Improve animation performance */
+  will-change: transform, opacity;
+  /* Prevent layout shifts during transitions */
+  contain: layout style paint;
+}
+
+/* Optimize back button animation */
+ion-back-button {
+  /* Use hardware acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimize content rendering */
+ion-content {
+  /* Improve scrolling performance */
+  -webkit-overflow-scrolling: touch;
+  /* Use hardware acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Reduce animation duration for all Ionic animations */
+:root {
+  --ion-animation-duration: 150ms;
+}
+
+/* Optimize menu transitions */
+ion-menu {
+  --ion-animation-duration: 150ms;
+}
+
+/* Optimize modal transitions */
+ion-modal {
+  --ion-animation-duration: 150ms;
+}
+
+/* Optimize loading indicator */
+ion-loading {
+  --ion-animation-duration: 150ms;
+}
+
+/* Optimize toast animations */
+ion-toast {
+  --ion-animation-duration: 150ms;
+}
+
+/* Optimize alert animations */
+ion-alert {
+  --ion-animation-duration: 150ms;
+}
+
+/* Optimize action sheet animations */
+ion-action-sheet {
+  --ion-animation-duration: 150ms;
+}
+
+/* Optimize popover animations */
+ion-popover {
+  --ion-animation-duration: 150ms;
+}
+
+/* Optimize card animations */
+ion-card {
+  transition-duration: 150ms !important;
+}
+
+/* Optimize button animations */
+ion-button {
+  transition-duration: 150ms !important;
+}
+
+/* Optimize item animations */
+ion-item {
+  transition-duration: 150ms !important;
+}
+
+/* Optimize list animations */
+ion-list {
+  transition-duration: 150ms !important;
+}
+
+/* Optimize grid animations */
+ion-grid {
+  transition-duration: 150ms !important;
+}
+
+/* Optimize row animations */
+ion-row {
+  transition-duration: 150ms !important;
+}
+
+/* Optimize column animations */
+ion-col {
+  transition-duration: 150ms !important;
+}
