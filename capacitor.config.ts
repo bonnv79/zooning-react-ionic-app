@@ -27,12 +27,12 @@ const config: CapacitorConfig = {
     webContentsDebuggingEnabled: true
   },
   // Server configuration
-  server: {
-    cleartext: true,
-    androidScheme: 'https',
-    iosScheme: 'https',
-    allowNavigation: ['*']
-  },
+  // server: {
+  //   cleartext: true,
+  //   androidScheme: 'https',
+  //   iosScheme: 'https',
+  //   allowNavigation: ['*']
+  // },
   plugins: {
     CapacitorHttp: {
       enabled: true
@@ -68,6 +68,9 @@ const config: CapacitorConfig = {
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE"
       ]
+    },
+    SslSkip: {
+      enabled: true // Enable the SSL skip functionality
     }
   }
 };
